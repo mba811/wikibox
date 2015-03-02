@@ -15,10 +15,10 @@ permalink: /:categories/:year-:month-:day-:title # https://github.com/mojombo/je
 title : Site Name
 tagline: Site Tagline
 author :
-  name : Name Lastname
-  email : hello@testmail.com
-  github : username
-  twitter : username
+  name : 洛桑扎巴
+  email : ztd811@gmail.com
+  github : mba811
+  twitter : ztd811
   feedburner : feedname
 
 # Site Logo Path
