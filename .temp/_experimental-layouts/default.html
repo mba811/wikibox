@@ -1,0 +1,88 @@
+---
+layout: nil
+type: layout
+description: A header with navigation and small footer.
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="utf-8">
+	<title>WikiBox</title>
+	<meta name="description" content="This is a wiki.">
+	<link rel="alternate" type="application/atom+xml" title="WikiBox Posts" href="#/atom.xml">
+	
+	<link href="/assets/icon/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+	<link href="/assets/css/foldingtext.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/foldingtext-ext.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="/assets/highlight/styles/zenburn.css">
+	<script src="/assets/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div class="container">	
+	<header>
+		<div class="site-title">
+			<a href="/index.html"><img src="/assets/icon/logo.png" height="64px"/></a>
+			<a href="/index.html"><br /><br />WikiBox<br /><br /></a>
+		</div>
+	</header>
+		
+		{% for post in site.posts %}
+  		{% capture b %}{{ post.box }}{% endcapture %}
+  			{% if b == "wikibox" %}
+  			{% capture posts_wb %} {{posts_wb | plus:1 }} {% endcapture %}{% endif %}
+  			{% if b == "box001" %}
+  			{% capture posts_b1 %} {{posts_b1 | plus:1 }} {% endcapture %}{% endif %}
+			{% if b == "box002" %}
+			{% capture posts_b2 %} {{ posts_b2 | plus:1 }} {% endcapture %}{% endif %}
+			{% if b == "box003" %}
+			{% capture posts_b3%} {{ posts_b3 | plus:1 }} {% endcapture %}{% endif %}
+			{% if b == "box004" %}
+			{% capture posts_b4 %} {{ posts_b4 | plus:1 }} {% endcapture %}{% endif %}
+			{% if b == "box005" %}
+			{% capture posts_b5 %} {{ posts_b5 | plus:1 }} {% endcapture %}{% endif %}
+		{% endfor %}
+
+	<div id="board-navigation" class="center60">
+		<a href="/index.html">HomeBoard</a>
+		<a href="#">ScrumBoard</a>
+		<br />
+		&#160;&#160;&#160;&#160;{{ site.posts | size }} 
+		&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 
+		<br />
+		<br />
+	</div>
+
+	<div id="box-navigation" class="center60">
+		<a href="/wikibox/index.html">WikiBox</a>
+		<a href="/box001/index.html">BoxOne</a>
+		<a href="/box002/index.html">BoxTwo</a>
+		<a href="/box003/index.html">BoxThree</a>
+		<a href="/box004/index.html">BoxFour</a>
+		<a href="/box005/index.html">BoxFive</a>
+		<br />
+		&#160;&#160;&#160;&#160;{{ posts_wb | remove:' ' }}
+		&#160;&#160;&#160;&#160;&#160;{{ posts_b1 | remove:' ' }}
+		&#160;&#160;&#160;&#160;&#160;{{ posts_b2 | remove:' ' }}
+		&#160;&#160;&#160;&#160;&#160;&#160;{{ posts_b3 | remove:' ' }}
+		&#160;&#160;&#160;&#160;&#160;&#160;{{ posts_b4 | remove:' ' }}
+		&#160;&#160;&#160;&#160;&#160;&#160;{{ posts_b5 | remove:' ' }}
+		<br />
+		<br />
+	</div>
+
+
+{{ content }}
+
+	<footer>
+		<a href="/stacks/allposts/index.html">All Posts</a>
+		<a href="https://twitter.com/intent/user?screen_name=dataduke">Twitter</a>
+		<a href="https://github.com/dataduke">Github</a>
+	</footer>
+</div>
+</body>
+</html>
